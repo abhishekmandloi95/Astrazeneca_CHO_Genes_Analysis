@@ -1,69 +1,112 @@
 # Gene Marker Identification and Constitutive Gene Analysis in CHO Cells
+
 *AstraZeneca Project*
 
 ## 📌 Project Summary
 
-This project was conducted in collaboration with AstraZeneca to analyze RNA-seq data from CHO (Chinese Hamster Ovary) cell lines. The goal was two-fold:
+This project was conducted in collaboration with AstraZeneca to analyze RNA-seq data from CHO (Chinese Hamster Ovary) cell lines.
 
-1. **Gene Marker Identification** – Discover genes strongly correlated with light chain (PRODUCT-TG) for use in clone selection.
-2. **Constitutive Gene Characterization** – Analyze gene expression stability and sequence patterns (5'UTR, CDS, 3'UTR) of non-variable genes.
+The project focused on two primary objectives:
+
+1. **Gene Marker Identification** – Identify genes strongly correlated with light-chain production (`PRODUCT-TG`) that could potentially support clone selection.
+2. **Constitutive Gene Characterization** – Analyze gene-expression stability and sequence characteristics across the 5'UTR, CDS, and 3'UTR regions of non-variable genes.
 
 ## 🧪 Methodology
 
 ### Gene Marker Identification
-- **Data Preprocessing**: Batch effect correction using ComBat, normalization
-- **Feature Selection**:
-  - Spearman correlation with PRODUCT-TG
-  - Random Forest Regressor and Classifier importance
-  - Composite scoring of genes using combined metrics
-- **Visualization**: Expression heatmaps, t-SNE, PCA
+
+- **Data Preprocessing**
+  - RNA-seq data preprocessing and normalization
+  - Batch-effect correction using ComBat
+
+- **Feature Selection**
+  - Spearman correlation with `PRODUCT-TG`
+  - Random Forest Regressor feature importance
+  - Random Forest Classifier feature importance
+  - Composite gene scoring using multiple metrics
+
+- **Visualization**
+  - Gene-expression heatmaps
+  - PCA
+  - t-SNE
 
 ### Constitutive Gene Analysis
-- **Stability Ranking**: Based on expression variance and standard deviation
-- **Sequence Embedding**: DNABERT for 5'UTR, CDS, and 3'UTR
-- **Cluster Analysis**: PCA on embeddings to check gene spread
 
-```markdown
-## 📁 Project Structure**
+- **Stability Ranking**
+  - Gene-expression variance
+  - Standard deviation-based stability analysis
 
-├── data/                # Raw RNA-seq data
-├── notebooks/           # Jupyter notebooks (exploration, modeling)
-├── figures/             # Visualizations (embeddings, feature importances)
-├── results/             # Final gene ranking tables
-├── report/              # Final PDF report
+- **Sequence Analysis**
+  - Analysis of 5'UTR, CDS, and 3'UTR regions
+  - DNABERT-based sequence embeddings
+
+- **Embedding and Cluster Analysis**
+  - PCA applied to DNABERT embeddings
+  - Visualization of sequence-level gene distributions
+
+## 📁 Project Structure
+
+```text
+Astrazeneca_CHO_Genes_Analysis/
+├── data/                # Raw and processed RNA-seq data
+├── notebooks/           # Jupyter notebooks for exploration and modelling
+├── figures/             # Visualisations and feature-importance outputs
+├── results/             # Final gene-ranking tables and analysis outputs
+├── report/              # Final project report
+├── requirements.txt     # Python dependencies
 └── README.md            # Project overview and instructions
 ```
 
 ## 📥 Download Intermediate Outputs
 
-We’ve bundled all of the intermediate analysis files (FIMO outputs, MEME summaries, DNABERT embeddings, etc.) into the **v1.0** release. To fetch and unpack them, run:
+Intermediate analysis files, including FIMO outputs, MEME summaries, DNABERT embeddings, and processed datasets, are available in the `v1.0` release.
 
 ```bash
-wget https://github.com/amritamoyade6/Astrazeneca_CHO_Genes_Analysis/releases/download/v1.0/processed_outputs.zip
-unzip processed_outputs.zip -d Astrazeneca_CHO_Analysis/data/processed/
+wget https://github.com/abhishekmandloi95/Astrazeneca_CHO_Genes_Analysis/releases/download/v1.0/Processed_Outputs.zip
+unzip Processed_Outputs.zip -d Astrazeneca_CHO_Genes_Analysis/data/processed/
 ```
 
-## 📊 Key Tools & Technologies
-- Python (Pandas, Scikit-learn, Seaborn, Matplotlib)
-- DNABERT embeddings (HuggingFace)
-- MEME/FIMO
-- PCA, t-SNE, ComBat
+## 📊 Tools & Technologies
+
+- Python
+- Pandas
+- Scikit-learn
+- Matplotlib
+- Seaborn
+- DNABERT / Hugging Face
+- MEME Suite
+- FIMO
+- PCA
+- t-SNE
+- ComBat
 - Git
 
-## 🚀 **How to Run**
-1. **Clone the repository**
+## 🚀 How to Run
 
-  ```bash
-  git clone https://github.com/amritamoyade6/astrazeneca_CHO_analysis.git
-  ```
+### 1. Clone the repository
 
-2. Dependencies
+```bash
+git clone https://github.com/abhishekmandloi95/Astrazeneca_CHO_Genes_Analysis.git
+cd Astrazeneca_CHO_Genes_Analysis
+```
 
-  - Python packages: see [`requirements.txt`](requirements.txt)  
-  - MEME Suite (meme, fimo): see [`INSTALL.md`](INSTALL.md)
+### 2. Install Python dependencies
 
-3. Launch notebooks  
+```bash
+pip install -r requirements.txt
+```
+
+MEME Suite and FIMO may require separate installation depending on the analysis being reproduced.
+
+### 3. Launch the notebooks
+
+```bash
 jupyter notebook notebooks/
+```
 
-## 👩‍💻 Authors
+## 👨‍💻 Authors
+
+- Abhishek Mandloi
 - Amrita Moyade
+
+This project was completed collaboratively as part of an AstraZeneca-related academic project.
